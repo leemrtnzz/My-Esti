@@ -84,34 +84,4 @@ function play() {
         // Panggil fungsi updateCountdown setiap detik
         updateCountdown(); // Pemanggilan awal
         const interval = setInterval(updateCountdown, 1000);
-        // Universal scroll reveal untuk semua browser
-function initUniversalScrollReveal() {
-    // Cek apakah browser support scroll-driven animations
-    const supportsScrollTimeline = CSS.supports('animation-timeline', 'view()');
-    
-    if (!supportsScrollTimeline) {
-        // Fallback untuk browser yang tidak support
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe semua elemen animasi
-        const revealElements = document.querySelectorAll('.imageReveal, .autoShow');
-        revealElements.forEach(el => {
-            observer.observe(el);
-        });
-    }
-}
-
-// Jalankan saat DOM ready
-document.addEventListener('DOMContentLoaded', initUniversalScrollReveal);
+        
