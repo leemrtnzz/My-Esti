@@ -46,7 +46,7 @@ function play() {
             );
         }, 250);
     }
-    const targetDate = new Date('2025-08-05T00:00:00');
+    const targetDate = new Date('2025-08-04T18:00:00+07:00');
     
     function updateCountdown() {
         const now = new Date();
@@ -56,6 +56,8 @@ function play() {
         if (diff < 0) {
             document.getElementById('timerCountDown').classList.add('hidden');
             document.getElementById('suppriseBtn').removeAttribute('disabled')
+            document.getElementById('suppriseBtn').classList.remove('cursor-not-allowed')
+            document.getElementById('suppriseBtn').textContent = 'Buka Dong';
             document.getElementById('hari').textContent = "0";
             document.getElementById('jam').textContent = "0";
             document.getElementById('menit').textContent = "0";
