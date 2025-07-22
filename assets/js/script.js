@@ -46,3 +46,39 @@ function play() {
             );
         }, 250);
     }
+    const targetDate = new Date('2025-08-05T00:00:00');
+    
+    function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+        
+        // Jika countdown telah selesai, set semua nilai ke 0 dan hentikan interval
+        if (diff < 0) {
+            document.getElementById('timerCountDown').classList.add('hidden');
+            document.getElementById('suppriseBtn').removeAttribute('disabled')
+            document.getElementById('hari').textContent = "0";
+            document.getElementById('jam').textContent = "0";
+            document.getElementById('menit').textContent = "0";
+            document.getElementById('detik').textContent = "0";
+            clearInterval(interval);
+            return;
+            }
+            // Hitung hari, jam, menit, dan detik
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // Perbarui tampilan countdown
+            document.getElementById('hari').textContent = days;
+            document.getElementById('jam').textContent = hours;
+            document.getElementById('menit').textContent = minutes;
+            document.getElementById('detik').textContent = seconds;
+            document.getElementById('suppriseBtn').setAttribute('disabled', 'disabled')
+            document.getElementById('suppriseBtn').classList.add('cursor-not-allowed')
+            document.getElementById('suppriseBtn').textContent = 'Belum Saatnya 😋'
+        }
+
+        // Panggil fungsi updateCountdown setiap detik
+        updateCountdown(); // Pemanggilan awal
+        const interval = setInterval(updateCountdown, 1000);
