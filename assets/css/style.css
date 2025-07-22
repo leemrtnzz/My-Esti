@@ -1,0 +1,30 @@
+body {
+    background-size: 10px 10px;
+    background-image: repeating-linear-gradient(45deg, #ffffff11 0, #ffffff11 1px, #000000 0, #000000 50%);
+    background-attachment: fixed;
+}
+
+@font-face {
+    font-family: 'Profile';
+    src: url('../fonts/kindergarten.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Winter';
+    src: url('../fonts/WinterthurCondensed.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+#content {
+    background: transparent; /* Hapus background dari content */
+}
+#content h1 {
+    font-family: 'Profile';
+}
+#content p, h2 {
+    font-family: 'Winter';
+}
