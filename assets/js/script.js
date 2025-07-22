@@ -46,7 +46,7 @@ function play() {
             );
         }, 250);
     }
-    const targetDate = new Date('2025-08-04T18:00:00+07:00');
+    const targetDate = new Date('2025-02-04T18:00:00+07:00');
     
     function updateCountdown() {
         const now = new Date();
